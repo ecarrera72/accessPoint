@@ -1,0 +1,129 @@
+<div class="container pt-2 animate__animated animate__fadeInUpBig shadow">
+    <div class="card">
+        <div class="card-header">
+            <div class="d-flex d-md-flex bg-dark rounded justify-content-around">
+                <h2 class="text-white animate__animated animate__zoomIn animate__delay-1s py-1">Registro Visitas</h2>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="toolbar row">
+                <div class="col-sm" data-bs-provide="datepicker">
+                    <input type="text" name="fromDate" id="fromDatePicker" class="form-control rounded" placeholder="Fecha Desde">
+                    {{!-- <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span> --}}
+                </div>
+
+                <div class="col-sm" data-bs-provide="datepicker">
+                    <input type="text" name="toDate" id="toDatePicker" class="form-control rounded" placeholder="Fecha Hasta">
+                </div>
+
+                <div class="col-sm">
+                    <button class="btn btn-sm btn-outline-primary" id="btnFilter">Filtrar</button>
+                    <button class="btn btn-sm btn-outline-danger" id="btnClear">Limpiar</button>
+                </div>
+            </div>
+            <table 
+                id="tbl"
+                data-toggle="table"
+                data-search="true"
+                data-show-search-clear-button="true"
+                data-show-columns="true"
+                data-sortable="true"
+                data-pagination="true"
+                data-height="580"
+                data-short-name="visit_check_date"
+                data-short-order="desc"
+                data-silent-sort="true"
+                data-mobile-responsive="true"
+                data-show-export="true"
+                data-show-refresh="true"
+                data-show-jump-to="true"
+                data-toolbar=".toolbar"
+                data-query-params="queryParams"
+                data-export-data-type="all"
+                data-export-types = "['xml', 'csv', 'excel', 'xlsx', 'pdf']"
+                data-loading-template="<i class='fa fa-spinner fa-spin fa-fw fa-2x'></i>"
+
+                data-pagination-successively-size="1"
+                data-pagination-pages-by-side="0"
+
+                data-method="GET"
+                data-url="/reports/visits/info"
+
+                class="table table-striped table-primary table-hover text-center">
+                <thead>
+                    <tr class="tr-class-1 table-dark">
+                        <th data-field="pcNombreCompleto" data-sortable="true">Nombre</th>
+                        <th data-field="peNombreCompleto" data-sortable="true">Visita A</th>
+                        <th data-field="vrVisitSubject" data-sortable="true">Asunto</th>
+                        <th data-field="arDescription" data-sortable="true">Area</th>
+                        <th data-field="dtDescription" data-sortable="true">Documento</th>
+                        <th data-field="vrVisitCheckDate" data-sortable="true">Fecha entrada</th>
+                        <th data-field="vrVisitExitDate" data-sortable="true">Fecha salida</th>
+                        <th data-field="peGender" data-visible="false" data-print-ignore="true" data-switchable="false">Genero</th>
+                        <th data-field="vtDescription" data-visible="false" data-print-ignore="true" data-switchable="false">Tipo Visita</th>
+                        <th data-field="pcPersonOid" data-visible="false" data-print-ignore="true" data-switchable="false">Person</th>
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalVisits" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header area-header">
+                <h4 class="modal-title"><i class="fas fa-info-circle"></i> Detalle de Visita</h4>
+            </div>
+            <div class="modal-body">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-4"></div>
+                        <div class="col-md-4 pb-3" id="imgPhoto"></div>
+
+                        <span class="small text-uppercase pt-3 text-center"><i class="fas fa-user"></i> Nombre:</span><h5 id="name" class="mb-0 text-center text-muted"></h5>
+
+                        <span class="small text-uppercase pt-3 text-center"><i class="fas fa-user"></i> Visita a:</span><h5 id="visit" class="mb-0 text-center text-muted"></h5>
+
+                        <div class="col-md-6 pt-3">
+                            <span class="small text-uppercase"><i class="fas fa-venus-mars"></i> Genero:</span><h5 id="gender" class="mb-0 text-center text-muted"></h5>
+                        </div>
+                        <div class="col-md-6 pt-3">
+                            <span class="small text-uppercase"><i class="fas fa-id-card"></i> Documento:</span><h5 id="document" class="mb-0 text-center text-muted"></h5>
+                        </div>
+
+                        <div class="col-md-6 pt-3">
+                            <span class="small text-uppercase"><i class="fas fa-people-arrows"></i> Asunto:</span><h5 id="subject" class="mb-0 text-center text-muted"></h5>
+                        </div>
+                        <div class="col-md-6 pt-3">
+                            <span class="small text-uppercase"><i class="far fa-building"></i> Area:</span><h5 id="area" class="mb-0 text-center text-muted"></h5>
+                        </div>
+
+                        <div class="col-md-6 pt-1">
+                            <span class="small text-uppercase"><i class="fas fa-pray"></i> Empleado:</span><h5 id="employee" class="mb-0 text-center text-muted"></h5>
+                        </div>
+                        <div class="col-md-6 pt-1">
+                            <span class="small text-uppercase"><i class="fas fa-eye"></i> Visitante:</span><h5 id="visitant" class="mb-0 text-center text-muted"></h5>
+                        </div>
+
+                        <div class="col-md-6 pt-1">
+                            <span class="small text-uppercase"><i class="fas fa-calendar-alt"></i> Fecha Entrada:</span><h5 id="entryDate" class="mb-0 text-center text-muted"></h5>
+                        </div>
+                        <div class="col-md-6 pt-1">
+                            <span class="small text-uppercase"><i class="fas fa-calendar-alt"></i> Fecha Salida:</span><h5 id="departureDate" class="mb-0 text-center text-muted"></h5>
+                        </div>
+
+                        <div class="col-md-6 pt-3" id="imgFront"></div>
+                        <div class="col-md-6 pt-3" id="imgBack"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer gap-2 p-1">
+                <button type="button" class="btn btn-danger" data-bs-dismiss="modal"><i class="fas fa-window-close"></i> Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/jquery/dist/jquery.min.js"></script>
+<script src="/js/reports/registroVisits.js"></script>

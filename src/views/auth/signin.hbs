@@ -1,0 +1,30 @@
+<div class="container mt-4 pt-4 animate__animated animate__backInDown animate__delay-1.5s">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card text-center shadow bg-body rounded">
+                {{!-- <div class="card-header shadow mb-2 bg-body rounded user-select-none border border-secondary">
+                    <h1>SignIn</h1>
+                </div> --}}
+                <div class="card-body">
+                    <img src="http://www.sieparking.com.mx/wp-content/uploads/2018/01/Aztek-Automatizacion-logo-vectores-1.5cm-largo.png" alt="Logo" class="card-img-top mx-auto w-50 shadow-lg p-3 mb-5 bg-body rounded">
+                    <form action="/signin" method="POST">
+                        <div class="form-group p-1">
+                            <input type="text" name="username" placeholder="Usuario" class="form-control" autofocus>
+                        </div>
+                        <div class="form-group p-1">
+                            <input type="password" name="password" placeholder="Contraseña" class="form-control" data-toggle="password">
+                        </div>
+                        <div class="form-group d-grid gap-2 mx-auto p-1">
+                            <button class="btn btn-primary">
+                                Entrar
+                            </button>
+                        </div>
+                        <div class="form-group p-1">
+                            <a href="/forgot">Olvido su Contaseña?</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

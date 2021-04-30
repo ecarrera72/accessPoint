@@ -1,0 +1,61 @@
+<div class="containe p-4">
+    <div class="row">
+        <div class="col-md-4 mx-auto">
+            <div class="card text-center">
+                <h3>{{ user.name }}</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div>
+    <div class="container p-4">
+        <div class="row">
+            <div class="col-md-8 mx-auto">
+                <div class="card text-center">
+                    <div class="shadow mb-2 bg-body rounded">
+                        <h1>Perfil</h1>
+                    </div>
+                    <div class="p-2">
+                        <form class="row g-3 needs-validation" action="/profile" method="POST">
+                            <div class="col-md-6 position-relative input-group">
+                                <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                                <input type="text" class="form-control" name="name" placeholder="Nombre Completo" value="{{ user.name }}" required autofocus>
+                            </div>
+                            <div class="col-md-4 position-relative input-group">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                                <input type="text" class="form-control" name="user" placeholder="Usuario" value="{{ user.user }}" required>
+                            </div>
+                            <div class="col-md-4 position-relative input-group" for="contactEmail">
+                                <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                                <input type="email" class="form-control" name="mail" placeholder="Email" value="{{ user.mail }}" pattern="[a-z0-9._@+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" required>
+                            </div>
+                            {{!-- <div class="col-md-4 position-relative input-group">
+                                <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                                <input type="tel" class="form-control" placeholder="Telefono" pattern="[0-9]{10}$" required>
+                            </div> --}}
+                            <div class="form-check form-switch col-md-3 position-relative ms-2">
+                                <input class="form-check-input" type="checkbox" id="checkPassUpd" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                                <label>Cambiar Contraseña</label>
+                            </div>
+                            <div class="collapse col-md-4 position-relative input-group" id="collapseExample">
+                                <span class="input-group-text"><i class="fas fa-user-secret"></i></span>
+                                <input type="password" class="form-control passwd" name="password" placeholder="Contraseña">
+                            </div>
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary btn-lg">Guardar</button>
+                                <a href="/" class="btn btn-danger btn-lg">Cancelar</a>
+                            </div>
+                            <input type="hidden" name="id" value="{{ user.id }}">
+                            <input type="hidden" name="status" value="{{ user.status }}">
+                            <input type="hidden" name="passUser" value="{{ user.password }}">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="/jquery/dist/jquery.min.js"></script>
+<script src="/js/profile.js"></script>

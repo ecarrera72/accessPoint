@@ -1,0 +1,69 @@
+<div class="container pt-2 animate__animated animate__fadeInUpBig shadow">
+    <div class="card">
+        <div class="card-header">
+            <div class="d-flex d-md-flex bg-dark rounded justify-content-around">
+                <h2 class="text-white animate__animated animate__zoomIn animate__delay-1s py-1">Movimientos</h2>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="toolbar row">
+                <div class="col-sm" data-bs-provide="datepicker">
+                    <input type="text" name="fromDate" id="fromDatePicker" class="form-control rounded" placeholder="Fecha Desde">
+                </div>
+
+                <div class="col-sm" data-bs-provide="datepicker">
+                    <input type="text" name="toDate" id="toDatePicker" class="form-control rounded" placeholder="Fecha Hasta">
+                </div>
+
+                <div class="col-sm">
+                    <button class="btn btn-sm btn-outline-primary" id="btnFilter">Filtrar</button>
+                    <button class="btn btn-sm btn-outline-danger" id="btnClean">Limpiar</button>
+                </div>
+            </div>
+            <table 
+                id="tbl"
+                data-toggle="table"
+                data-search="true"
+                data-show-search-clear-button="true"
+                data-show-columns="true"
+                data-sortable="true"
+                data-pagination="true"
+                data-height="580"
+                data-short-name="visit_check_date"
+                data-short-order="desc"
+                data-silent-sort="true"
+                data-mobile-responsive="true"
+                data-show-export="true"
+                data-show-refresh="true"
+                data-show-jump-to="true"
+                data-toolbar=".toolbar"
+                data-query-params="queryParams"
+                data-export-data-type="all"
+                data-export-types = "['xml', 'csv', 'excel', 'xlsx', 'pdf']"
+                data-loading-template="<i class='fa fa-spinner fa-spin fa-fw fa-2x'></i>"
+
+                data-pagination-successively-size="1"
+                data-pagination-pages-by-side="0"
+
+                data-method="GET"
+                data-url="/reports/movements/details"
+
+                class="table table-striped table-primary table-hover text-center">
+                <thead>
+                    <tr class="tr-class-1 table-dark">
+                        <th data-field="nombre" data-sortable="true">Nombre</th>
+                        <th data-field="inmueble" data-sortable="true">Inmueble</th>
+                        <th data-field="ubicacion" data-sortable="true">Ubicacion</th>
+                        <th data-field="local" data-sortable="true">Departamento</th>
+                        <th data-field="puesto" data-sortable="true">Area</th>
+                        <th data-field="evento" data-sortable="true">Evento</th>
+                        <th data-field="fecha" data-sortable="true">Fecha</th>
+                        {{!-- <th data-field="pcPersonOid" data-visible="false" data-print-ignore="true" data-switchable="false">Person</th> --}}
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+</div>
+
+<script src="/js/reports/movementsAccess.js"></script>
