@@ -5,14 +5,22 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
     overflow: hidden;
-    background: url('http://www.sieparking.com.mx/wp-content/uploads/2017/12/sistemas-de-cobro-para-estacionamientos-mexico_8.jpg?id=2898');
+    /*background: url('/img/accessControl.jpg');*/
+    background: url('/img/backMovil.jpg');
     background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    background-repeat: repeat-x;
+    
     width: 100%;
     height: 100vh;
     margin: 0;
     padding: 0;
+}
+
+@media (max-width: 992px) {
+    body {
+        background: url('/img/backMovil.jpg');
+        background-size: 100%;
+    }
 }
 
 .masthead {
@@ -79,4 +87,18 @@ li.page-item.page-last-separator.disabled{
 
 li.page-item.page-first-separator.disabled{
     display: none;
+}
+
+.stepwizard-row:before {
+    top: 16px;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 2px;
+    background-color: #ccc;
+}
+
+#imgPhoto {
+    transform: rotate(90deg);
 }
