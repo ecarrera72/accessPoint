@@ -18,8 +18,9 @@ body {
 
 @media (max-width: 992px) {
     body {
-        background: url('/img/backMovil.jpg');
+        /* background: url('/img/backMovil.jpg'); */
         background-size: 100%;
+        overflow: auto;
     }
 }
 
