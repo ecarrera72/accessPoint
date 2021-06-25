@@ -25,13 +25,14 @@ document.addEventListener( 'DOMContentLoaded', () => {
     });
 
     $('#tbl').on('dbl-click-row.bs.table', function(row, $element, field) {
+    	$('#imgPhoto').removeAttr('src').attr( 'src' , '/img/loading.gif' );
         console.log($element.imagen);
 
         $.get( '/reports/movements/image', { nameFile: $element.imagen } ).done( (data) => {
             if ( data != null ) { 
                 $('#imgPhoto').removeAttr('src').attr( 'src' , '/ftp/' + $element.imagen );
             } else {
-                $('#imgPhoto').removeAttr('src').attr( 'src' , '/img/aztek.png' );
+                $('#imgPhoto').removeAttr('src').attr( 'src' , '/img/nodisponible.jpg' );
             }
         });
 

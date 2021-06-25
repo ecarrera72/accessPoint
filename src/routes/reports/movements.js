@@ -51,9 +51,10 @@ router.get('/image', isloggedIn, async (req, res) => {
     let image = null;
     try {
         await client.access({
-            host: '192.168.1.2',
+            host: 'siereportes.dyndns.org',
             user: 'Asistencia',
             password: 'AztFTP#.2',
+            port: 821,
             secure: false
         });
 
