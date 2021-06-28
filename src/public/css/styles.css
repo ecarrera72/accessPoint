@@ -17,8 +17,9 @@ body {
 
 @media (max-width: 992px) {
     body {
-        background: url('/img/backMovil.jpg');
+        /*background: url('/img/backMovil.jpg');*/
         background-size: 100%;
+        overflow: auto;
     }
 }
 
@@ -87,7 +88,6 @@ li.page-item.page-last-separator.disabled{
 li.page-item.page-first-separator.disabled{
     display: none;
 }
-<<<<<<< Updated upstream
 
 .stepwizard-row:before {
     top: 16px;
@@ -99,8 +99,6 @@ li.page-item.page-first-separator.disabled{
     background-color: #ccc;
 }
 
-/*#imgPhoto {
+#imgPhoto {
     transform: rotate(90deg);
-}*/
-=======
->>>>>>> Stashed changes
+}
